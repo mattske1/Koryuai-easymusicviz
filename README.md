@@ -13,6 +13,7 @@ eye-catching on YouTube and social media platforms.
 | Mode | Engine | What it does |
 |---|---|---|
 | `liquid` | audio-reactive "liquid metal" | Analyzes your song's energy, brightness, and pulse, then renders a flowing turbulent field that breathes with the music. 100% programmatic — runs anywhere, no AI services. |
+| `galaxy` | audio-reactive deep space | A spiral galaxy with domain-warped nebula clouds, a twinkling parallax starfield, and a pulse-flaring core — all driven by your song. 100% programmatic, no AI services. |
 | `still` | FLUX.1-schnell | Photorealistic stills (water, fire, whatever you prompt) from a free hosted Space. |
 | `animate` | Wan 2.2 image-to-video | Brings a still to life with a static camera, from a free hosted Space. |
 | `weave` | crossfade weaver | Chains any clip into a seamless loop of exact length. The weave doesn't care where the clip came from. |
@@ -34,6 +35,9 @@ python3 app.py liquid -- song.wav --out visuals.mp4 --full-length
 # 10-second seamless liquid loop for Shorts/Reels/TikTok
 python3 app.py liquid -- song.wav --out loop.mp4 --seconds 10
 
+# Audio-reactive galaxy render (full length, audio muxed in)
+python3 app.py galaxy -- song.wav --out galaxy.mp4 --full-length --palette nebula
+
 # Ambient water/fire loop: still -> animate -> weave
 python3 app.py still -- --prompt "$(head -1 scenes/fire-pit-night.txt)" --out still.png
 python3 app.py animate -- --still still.png --out clip.mp4
@@ -54,7 +58,7 @@ step doesn't care where the clip came from.
 ## Roadmap
 
 The plan is a GUI on top of this same CLI: load up your song, pick a material
-(liquid, water, fire, future textures), tune properties (palette, turbulence,
+(liquid, galaxy, water, fire, future textures), tune properties (palette, turbulence,
 duration, camera behavior), tick output formats (16:9 for YouTube, 9:16 for
 Reels/TikTok/Shorts, 1:1 for the feed), and render — same engines underneath,
 no new pipeline to learn.

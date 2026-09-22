@@ -3,6 +3,7 @@
 
 Subcommands:
   liquid   audio-reactive "liquid metal" render from a song (engines/liquid.py)
+  galaxy   audio-reactive galaxy / deep-space render from a song (engines/galaxy.py)
   still    photorealistic still from a prompt via FLUX.1-schnell (engines/still.py)
   animate  still -> short clip via Wan 2.2 image-to-video (engines/animate.py)
   weave    weave a clip into a seamless loop of exact length (engines/weave.py)
@@ -27,6 +28,7 @@ def main():
 
     for name, script, help_ in [
         ("liquid", "liquid.py", "audio-reactive liquid render from a song"),
+        ("galaxy", "galaxy.py", "audio-reactive galaxy/deep-space render from a song"),
         ("still", "still.py", "photorealistic still from a prompt"),
         ("animate", "animate.py", "animate a still into a short clip"),
         ("weave", "weave.py", "weave a clip into a seamless loop"),
@@ -38,7 +40,8 @@ def main():
 
     a = ap.parse_args()
     rest = a.rest[1:] if a.rest[:1] == ["--"] else a.rest
-    scripts = {"liquid": "liquid.py", "still": "still.py",
+    scripts = {"liquid": "liquid.py", "galaxy": "galaxy.py",
+               "still": "still.py",
                "animate": "animate.py", "weave": "weave.py"}
     run(scripts[a.mode], rest)
 
